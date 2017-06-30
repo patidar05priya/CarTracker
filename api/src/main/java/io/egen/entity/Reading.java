@@ -8,9 +8,8 @@ import java.util.UUID;
 @Entity
 public class Reading {
 
-     @Id
-    @Column(columnDefinition = "VARCHAR(36)")
-     private String id;
+    @Id
+    private String id;
 
     private String vin;
     private double latitude;
@@ -24,7 +23,7 @@ public class Reading {
     private double engineRpm;
 
     @OneToOne
-   private Tire tires;
+    private Tire tires;
 
     @OneToMany
     private List<Alert> alerts;

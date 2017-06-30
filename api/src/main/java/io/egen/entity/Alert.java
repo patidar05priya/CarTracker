@@ -4,9 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.UUID;
 
-/**
- * Created by Priya on 6/29/2017.
- */
+
 @Entity
 public class Alert {
 

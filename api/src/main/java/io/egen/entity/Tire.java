@@ -8,7 +8,6 @@ import java.util.UUID;
 @Entity
 public class Tire {
     @Id
-    @Column(columnDefinition = "VARCHAR(36)")
     private String id;
 
     private int frontLeft;

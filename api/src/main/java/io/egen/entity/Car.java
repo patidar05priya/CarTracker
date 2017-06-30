@@ -10,7 +10,6 @@ import java.sql.Timestamp;
 public class Car {
 
     @Id
-    @Column(columnDefinition = "VARCHAR(36)", unique = true)
     private String vin;
 
     private String make;

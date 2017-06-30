@@ -22,7 +22,7 @@ public class CarController {
     public void update(@RequestBody Reading reading)
     {
         System.out.println(reading);
-       // service.readingUpdte(reading);
+        service.readingUpdte(reading);
 
     }
 
@@ -31,7 +31,7 @@ public class CarController {
     @CrossOrigin
     public Car load(@RequestBody List<Car> cars) {
         System.out.println(cars);
-        //service.load(cars);
+        service.load(cars);
         return null;
     }
 }
