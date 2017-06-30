@@ -1,5 +1,6 @@
 package io.egen.Repository;
 
+import io.egen.entity.Alert;
 import io.egen.entity.Car;
 import io.egen.entity.Reading;
 import org.springframework.stereotype.Repository;
@@ -24,7 +25,6 @@ public class CarRepositoryImpl implements CarRepository {
 
     public Reading readingUpdte(Reading reading) {
         {
-
             em.persist(reading.getTires());
             em.persist(reading);
 
@@ -40,5 +40,10 @@ public class CarRepositoryImpl implements CarRepository {
 
     public Car update(Car car) {
       return  em.merge(car);
+    }
+
+    public Alert create(Alert alert) {
+        em.persist(alert);
+        return alert;
     }
 }

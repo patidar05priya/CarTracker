@@ -17,22 +17,21 @@ public class CarController {
     @Autowired
     CarService service;
 
-
-
-
-
     @RequestMapping(method = RequestMethod.POST,value="/readings", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @CrossOrigin
     public void update(@RequestBody Reading reading)
     {
-        service.readingUpdte(reading);
+        System.out.println(reading);
+       // service.readingUpdte(reading);
 
     }
 
 
     @RequestMapping(method = RequestMethod.PUT,value = "/vehicles",consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @CrossOrigin
-    public void load(@RequestBody List<Car> cars) {
-        service.load(cars);
+    public Car load(@RequestBody List<Car> cars) {
+        System.out.println(cars);
+        //service.load(cars);
+        return null;
     }
 }

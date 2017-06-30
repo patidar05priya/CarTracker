@@ -1,6 +1,8 @@
 package io.egen.entity;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -9,31 +11,35 @@ public class Reading {
      @Id
     @Column(columnDefinition = "VARCHAR(36)")
      private String id;
+
     private String vin;
-    private float latitude;
-    private float langitute;
-    private String timestamp;
-    private float flueVolume;
-    private float speed;
-    private int engineHP;
+    private double latitude;
+    private double longitute;
+    private Timestamp timestamp;
+    private double fuelVolume;
+    private double speed;
+    private double engineHp;
     private boolean checkEngineLightOn;
-    private boolean EngineCoolantLow;
-    private int engineRPM;
+    private boolean engineCoolantLow;
+    private double engineRpm;
 
     @OneToOne
    private Tire tires;
+
+    @OneToMany
+    private List<Alert> alerts;
 
     public Reading(){
         this.id = UUID.randomUUID().toString();
     }
 
 
-    public Tire getTires() {
-        return tires;
+    public String getId() {
+        return id;
     }
 
-    public void setTires(Tire tires) {
-        this.tires = tires;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getVin() {
@@ -44,52 +50,52 @@ public class Reading {
         this.vin = vin;
     }
 
-    public float getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(float latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public float getLangitute() {
-        return langitute;
+    public double getLongitute() {
+        return longitute;
     }
 
-    public void setLangitute(float langitute) {
-        this.langitute = langitute;
+    public void setLongitute(double longitute) {
+        this.longitute = longitute;
     }
 
-    public String getTimestamp() {
+    public Timestamp getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
     }
 
-    public float getFlueVolume() {
-        return flueVolume;
+    public double getFuelVolume() {
+        return fuelVolume;
     }
 
-    public void setFlueVolume(float flueVolume) {
-        this.flueVolume = flueVolume;
+    public void setFuelVolume(double flueVolume) {
+        this.fuelVolume = flueVolume;
     }
 
-    public float getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 
-    public void setSpeed(float speed) {
+    public void setSpeed(double speed) {
         this.speed = speed;
     }
 
-    public int getEngineHP() {
-        return engineHP;
+    public double getEngineHp() {
+        return engineHp;
     }
 
-    public void setEngineHP(int engineHP) {
-        this.engineHP = engineHP;
+    public void setEngineHp(double engineHp) {
+        this.engineHp = engineHp;
     }
 
     public boolean isCheckEngineLightOn() {
@@ -101,36 +107,53 @@ public class Reading {
     }
 
     public boolean isEngineCoolantLow() {
-        return EngineCoolantLow;
+        return engineCoolantLow;
     }
 
     public void setEngineCoolantLow(boolean engineCoolantLow) {
-        EngineCoolantLow = engineCoolantLow;
+        this.engineCoolantLow = engineCoolantLow;
     }
 
-    public int getEngineRPM() {
-        return engineRPM;
+    public double getEngineRpm() {
+        return engineRpm;
     }
 
-    public void setEngineRPM(int engineRPM) {
-        this.engineRPM = engineRPM;
+    public void setEngineRpm(double engineRpm) {
+        this.engineRpm = engineRpm;
     }
 
+    public Tire getTires() {
+        return tires;
+    }
+
+    public void setTires(Tire tires) {
+        this.tires = tires;
+    }
+
+    public List<Alert> getAlerts() {
+        return alerts;
+    }
+
+    public void setAlerts(List<Alert> alerts) {
+        this.alerts = alerts;
+    }
 
     @Override
     public String toString() {
         return "Reading{" +
-                "vin='" + vin + '\'' +
+                "id='" + id + '\'' +
+                ", vin='" + vin + '\'' +
                 ", latitude=" + latitude +
-                ", langitute=" + langitute +
-                ", timestamp='" + timestamp + '\'' +
-                ", flueVolume=" + flueVolume +
+                ", longitute=" + longitute +
+                ", timestamp=" + timestamp +
+                ", flueVolume=" + fuelVolume +
                 ", speed=" + speed +
-                ", engineHP=" + engineHP +
+                ", engineHp=" + engineHp +
                 ", checkEngineLightOn=" + checkEngineLightOn +
-                ", EngineCoolantLow=" + EngineCoolantLow +
-                ", engineRPM=" + engineRPM +
-                ", tire=" + tires +
+                ", engineCoolantLow=" + engineCoolantLow +
+                ", engineRpm=" + engineRpm +
+                ", tires=" + tires +
+                ", alerts=" + alerts +
                 '}';
     }
 }

@@ -15,14 +15,13 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-
 public class JPAConfig {
     @Bean
     public LocalContainerEntityManagerFactoryBean emf() {
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
         emf.setDataSource(getDataSource());
         emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-        emf.setPackagesToScan("egen.io.entity");
+        emf.setPackagesToScan("io.egen.entity");
 
         Properties property = new Properties();
         property.put("hibernate.dialect", "org.hibernate.dialect.MySQL57Dialect");
